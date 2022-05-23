@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use stdClass;
 
 class Municipality extends Model
 {
@@ -18,4 +19,19 @@ class Municipality extends Model
         'id',
         'fe_id'
     ];
+
+    /**
+     * Get the FederalEntity that owns the Municipality.
+     */
+    public function federalEntity()
+    {
+        return $this->belongsTo(FederalEntity::class, 'fe_id');
+    }
+
+    public function getMunicipalityAttribute(): object {
+        $objectM = new stdClass;
+        $objectM->key = $this->id;
+        $objectM->name = $this->name;
+        return $objectM;
+    }
 }

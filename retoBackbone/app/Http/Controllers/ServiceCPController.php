@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ServiceCP;
+use App\Services\CPService;
 
 class ServiceCPController extends Controller
 {
@@ -16,12 +16,11 @@ class ServiceCPController extends Controller
      * @return array
      */
 
-    public function serviceCP(int  $cp=1):array{
-        if(is_int($cp) && $cp !=1){
-            $serviceCP = new ServiceCP();
-            return $serviceCP->cp($cp);
+    public function serviceCP(string  $cp=""):array{
+        if(is_string($cp) && $cp !=""){
+            $serviceCP = new CPService();
+            return $serviceCP->cp2($cp);
             }
         return ['not valid postal code'];
     }
-  
 }

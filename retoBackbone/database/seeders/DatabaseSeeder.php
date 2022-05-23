@@ -16,9 +16,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(FederalEntity::class);
-        $this->call(Municipality::class);
-        $this->call(SettlementTypeSeeder::class);
-        $this->call(Settlement::class);
+        $this->call([
+            FederalEntitySeeder::class,
+            MunicipalitySeeder::class,
+            SettlementTypeSeeder::class,
+            SettlementSeeder::class,
+            PostalCodeSeeder::class,
+        ]);
     }
 }

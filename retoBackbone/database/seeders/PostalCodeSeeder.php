@@ -25,14 +25,16 @@ class PostalCodeSeeder extends Seeder
             $arrayPC= [];
             foreach($phpArray['table'] as $cpData){
                 if(in_array($cpData['d_codigo'], $arrayPC) == false){
-                    PostalCode::create(array(
-                        'locality' => $cpData['d_ciudad'],
+                   
+                   $object = PostalCode::create(array(
+                        'locality' => $cpData['d_ciudad']??'',
                         'zip_code' => $cpData['d_codigo'],
                         's_id' => Settlement::where('name', $cpData['d_asenta'])->first()->id
                     ));
                     array_push($arrayPC, $cpData['d_codigo']); 
                 }
             }
+
         } catch (Exception $e) {
             throw $e;
         }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use stdClass;
 
 class SettlementType extends Model
 {
@@ -16,5 +17,11 @@ class SettlementType extends Model
     protected $fillable = [
         'name', 'id'
     ];
+
+    public function getSettlementtypeAttribute(): object {
+        $objectST = new stdClass;
+        $objectST->name = $this->name;
+        return $objectST;
+    }
     
 }

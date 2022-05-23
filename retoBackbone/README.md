@@ -1,11 +1,16 @@
-Install
+Para instalar
 
-sudo apt install php8.0-sqlite3
+1. sudo apt install php8.0-sqlite3
+
+2. Definir la ruta de la base de datos sqlite
+
+3. 
 Ejecutar php artisan migrate
 Ejecutar php artisan db:seed --class=FederalEntitySeeder
 Ejecutar php artisan db:seed --class=MunicipalitySeeder
 Ejecutar php artisan db:seed --class=SettlementTypeSeeder
 Ejecutar php artisan db:seed --class=SettlementSeeder
+o solamente php artisan migrate --seed
 
 Pasos
 1. Crear proyecto en GitHub
@@ -22,6 +27,7 @@ Pasos
 4.1. Crear instancia ubuntu e instalar paquetes y el servidor web Apache
 4.2. Poner IP pública a la instancia
 4.3. Descargar proyecto en la instancia 
+4.4. ejecutar comandos de instalación dentro de la instancia
 
 
 
