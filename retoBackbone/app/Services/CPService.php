@@ -76,7 +76,9 @@ class CPService {
     public function cp2 (string $cp): array{
         try {
             $postalCode = PostalCode::where('zip_code', $cp)->first();
-            return  $postalCode->postalcode;
+            if($postalCode != null){
+                return  $postalCode->postalcode;
+            }
         } catch (Exception $e) {
             throw $e;
         }
