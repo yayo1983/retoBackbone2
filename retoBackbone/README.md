@@ -1,10 +1,10 @@
 Para instalar
 
 1. sudo apt install php8.0-sqlite3
-
-2. Definir la ruta de la base de datos sqlite
-
-3. 
+2. composer require rebing/graphql-laravel (No es necesario instalarlo aparte, ya viene al ejecutar el composer)
+3. php artisan vendor:publish --provider="Rebing\GraphQL\GraphQLServiceProvider" (ya viene con el proyecto)
+4. Definir la ruta de la base de datos sqlite
+5. 
 Ejecutar php artisan migrate
 Ejecutar php artisan db:seed --class=FederalEntitySeeder
 Ejecutar php artisan db:seed --class=MunicipalitySeeder
@@ -21,8 +21,8 @@ Pasos
 2.4. Desarrollar lógica de negocio en el modelo
 2.5. Crear la ruta del API y la function en la clase controladora para que llame a la clase Service que implementa el servicio
 2.6. En la clase service creado funciones para standarizar la salida en el formato requerido
-2.7. Creaciòn de pruebas unitarias para probar las funciones y seeders
-
+2.7. Utilizar GrphQL para realizar las consultas, creacion de type y query de GraphQL
+2.8. Creación de pruebas unitarias para probar las funciones y seeders
 
 3. Subir proyecto en GitHub
 
