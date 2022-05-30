@@ -17,7 +17,8 @@ class Municipality extends Model
     protected $fillable = [
         'name',
         'id',
-        'fe_id'
+        'fe_id',
+        'code'
     ];
 
     /**

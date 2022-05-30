@@ -21,6 +21,8 @@ Pasos
 2.4. Desarrollar lógica de negocio en el modelo
 2.5. Crear la ruta del API y la function en la clase controladora para que llame a la clase Service que implementa el servicio
 2.6. En la clase service creado funciones para standarizar la salida en el formato requerido
+2.7. Creaciòn de pruebas unitarias para probar las funciones y seeders
+
 
 3. Subir proyecto en GitHub
 

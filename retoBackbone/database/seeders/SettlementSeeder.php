@@ -23,9 +23,13 @@ class SettlementSeeder extends Seeder
             $xmlObject = @simplexml_load_string($xmlString);
             $json = json_encode($xmlObject);
             $phpArray = json_decode($json, true);           
-            $arrayS= [];
+            $arrayS = [];
+            $arrayCM = [];
+            $arrayFE = [];
             foreach($phpArray['table'] as $cpData){
-                if(in_array($cpData['d_asenta'], $arrayS) == false){
+                if(in_array($cpData['d_asenta'], $arrayS) == false || (in_array($cpData['d_asenta'], $arrayS) == true 
+                && in_array($cpData['c_mnpio'], $arrayCM) == false) || (in_array($cpData['d_asenta'], $arrayS) == true 
+                && in_array($cpData['c_mnpio'], $arrayCM) == true && in_array($cpData['c_estado'], $arrayFE) == false)){
                     Settlement::create(array(
                         'name' => $cpData['d_asenta'],
                         'zone_type' => $cpData['d_zona'],
@@ -34,6 +38,8 @@ class SettlementSeeder extends Seeder
 
                     ));
                     array_push($arrayS, $cpData['d_asenta']); 
+                    array_push($arrayCM, $cpData['c_mnpio']); 
+                    array_push($arrayFE, $cpData['c_estado']); 
                 }
             } 
         } catch (Exception $e) {

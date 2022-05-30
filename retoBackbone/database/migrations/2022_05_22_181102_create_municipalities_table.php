@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('municipalities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('code');
             $table->unsignedBigInteger('fe_id');
             $table->foreign('fe_id')->references('id')->on('federal_entities');
         });
