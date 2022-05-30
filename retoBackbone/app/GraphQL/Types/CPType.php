@@ -9,12 +9,13 @@ use Rebing\GraphQL\Support\Type as GraphQLType;
 class CPType extends GraphQLType
 {
     protected $attributes = [
+        'name' => 'CP',
         'locality' => '',
         'zip_code' => '',
         'model' => PostalCode::class
     ];
 
-    public function fields()
+    public function fields(): array
     {
         return [
             'id' => [
@@ -25,11 +26,14 @@ class CPType extends GraphQLType
                 'locality' => Type::nonNull(Type::string()),
                 'description' => 'The name of the locality',
             ],
-            's_id' => [
+            /* 'settlements' => [
+                'type' => Type::listOf(GraphQL::type('Settlement')),
+                'description' => 'List of settlements'
+            ] */
+            /* 's_id' => [
                 'type' => Type::nonNull(Type::int()),
-                'description' => 'Id of the settlement',
-            ],
-           
+                'description' => 'List of settlements',
+            ] */
         ];
     }
 }

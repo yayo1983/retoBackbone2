@@ -10,6 +10,7 @@
         "laravel/framework": "^9.11",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
+        "mll-lab/laravel-graphql-playground": "^2.6",
         "rebing/graphql-laravel": "^8.2"
     },
     "require-dev": {

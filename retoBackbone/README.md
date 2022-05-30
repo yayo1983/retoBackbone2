@@ -2,9 +2,10 @@ Para instalar
 
 1. sudo apt install php8.0-sqlite3
 2. composer require rebing/graphql-laravel (No es necesario instalarlo aparte, ya viene al ejecutar el composer)
-3. php artisan vendor:publish --provider="Rebing\GraphQL\GraphQLServiceProvider" (ya viene con el proyecto)
-4. Definir la ruta de la base de datos sqlite
-5. 
+3. composer require mll-lab/laravel-graphql-playground (ya viene con el composer)
+4. php artisan vendor:publish --provider="Rebing\GraphQL\GraphQLServiceProvider" (ya viene con el proyecto)
+5. Definir la ruta de la base de datos sqlite
+6. 
 Ejecutar php artisan migrate
 Ejecutar php artisan db:seed --class=FederalEntitySeeder
 Ejecutar php artisan db:seed --class=MunicipalitySeeder

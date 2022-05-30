@@ -5,19 +5,21 @@ namespace App\GraphQL\Queries;
 use App\Models\PostalCode;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Query;
+use Rebing\GraphQL\Support\Facades\GraphQL;
 
 class CPQuery extends Query
 {
     protected $attributes = [
-        'name' => 'cp',
+        'name' => 'CP',
     ];
 
-    public function type()
+    public function type(): Type
     {
-        return GraphQL::type('CP');
+       // return Type::nonNull(Type::listOf(Type::nonNull(GraphQL::type('CP'))));
+        return Type::nonNull(GraphQL::type('CP'));
     }
 
-    public function args()
+    public function args(): array
     {
         return [
             'id' => [
@@ -30,6 +32,8 @@ class CPQuery extends Query
 
     public function resolve($root, $args)
     {
-        return Wine::findOrFail($args['id']);
+        if (isset($args['id'])) {
+            return PostalCode::where('id' , $args['id'])->get();
+        }
     }
 }
